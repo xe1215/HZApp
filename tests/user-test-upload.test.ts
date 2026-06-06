@@ -69,6 +69,58 @@ test("合格自拍上传后会创建一条试色测试记录", async () => {
   assert.equal(insertedTests[0].expiresAt, "2026-06-04T10:00:00.000Z");
 });
 
+test("自拍上传始终由云函数强制写入私有云存储", async () => {
+  const savedFiles: Array<{ access: string; cloudPath: string }> = [];
+
+  await testMain(
+    {
+      action: "uploadSelfie",
+      file: {
+        name: "selfie.jpg",
+        contentType: "image/jpeg",
+        buffer: "base64-image-data",
+      },
+      checks: {
+        contentSafe: true,
+        faceDetected: true,
+        imageClear: true,
+        lipsVisible: true,
+      },
+      requestedAccess: "public",
+    },
+    {
+      openid: "openid-001",
+      storage: {
+        async upload(options) {
+          savedFiles.push({
+            access: options.access,
+            cloudPath: options.cloudPath,
+          });
+
+          return {
+            fileId: "cloud://selfies/openid-001/test-001/original.jpg",
+          };
+        },
+      },
+      database: {
+        async addTryOnTest() {
+          return {
+            id: "test-001",
+          };
+        },
+      },
+      idGenerator: () => "test-001",
+    },
+  );
+
+  assert.deepEqual(savedFiles, [
+    {
+      access: "private",
+      cloudPath: "selfies/openid-001/test-001/original.jpg",
+    },
+  ]);
+});
+
 test("不合格自拍会被拦截并返回可理解的失败原因", async () => {
   const blockedCases = [
     {

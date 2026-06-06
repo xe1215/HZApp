@@ -11,6 +11,7 @@ export interface UploadSelfieEvent {
     contentType: string;
     buffer: string;
   };
+  requestedAccess?: string;
   checks: {
     contentSafe: boolean;
     faceDetected: boolean;
