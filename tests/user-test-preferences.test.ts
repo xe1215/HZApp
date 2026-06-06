@@ -94,6 +94,44 @@ test("推荐结果包含完整报告展示所需字段", async () => {
   });
 });
 
+test("口红库通过 CloudBase 集合维护，未上架色号不会进入推荐", async () => {
+  const catalogWithInactive = [
+    lipstick("inactive-lip", {
+      skinToneTags: ["fair"],
+      budgetRange: "mid",
+      sceneTags: ["commute"],
+      styleTags: ["brightening"],
+      baseScore: 999,
+      manualBoost: 999,
+      status: "inactive",
+    }),
+    ...lipstickCatalog,
+  ];
+  const context = createPreferenceContext({
+    catalog: catalogWithInactive,
+    onReport: () => undefined,
+  });
+
+  const result = await testMain(
+    {
+      action: "submitPreferences",
+      testId: "test-001",
+      preferences: {
+        skinTone: "fair",
+        budgetRange: "mid",
+        scenes: ["commute"],
+        styles: ["brightening"],
+      },
+    },
+    context,
+  );
+
+  assert.deepEqual(
+    result.recommendations.map((item) => item.lipstickId),
+    ["lip-1", "lip-2", "lip-3"],
+  );
+});
+
 test("报告 snapshot 不会被后续口红库对象修改影响", async () => {
   const mutableCatalog = [
     lipstick("lip-1", {
@@ -227,7 +265,7 @@ function createPreferenceContext(options: {
 
 function lipstick(
   _id: string,
-  overrides: Pick<Lipstick, "skinToneTags" | "budgetRange" | "sceneTags" | "styleTags" | "baseScore" | "manualBoost">,
+  overrides: Pick<Lipstick, "skinToneTags" | "budgetRange" | "sceneTags" | "styleTags" | "baseScore" | "manualBoost"> & Partial<Pick<Lipstick, "status">>,
 ): Lipstick {
   return {
     _id,
