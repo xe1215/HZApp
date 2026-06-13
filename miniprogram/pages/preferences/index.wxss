@@ -1,1 +1,42 @@
 @import "../shared.wxss";
+
+.section {
+  margin-top: 36rpx;
+}
+
+.section-title {
+  color: #24191d;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.segmented {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.segment {
+  flex: 1;
+  min-width: 0;
+  height: 72rpx;
+  border-radius: 8rpx;
+  color: #6d5960;
+  background: #fff;
+  border: 2rpx solid #f0c7d3;
+  font-size: 24rpx;
+  line-height: 72rpx;
+}
+
+.segment-active {
+  color: #fff;
+  background: #b72957;
+  border-color: #b72957;
+}
+
+.feedback {
+  margin-top: 24rpx;
+  color: #8b2a4a;
+  font-size: 26rpx;
+  line-height: 1.5;
+}

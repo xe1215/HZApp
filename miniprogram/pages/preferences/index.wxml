@@ -1,5 +1,35 @@
 <view class="page">
   <view class="title">Set preferences</view>
   <view class="copy">Skin tone, budget, scene, and style will shape the first recommendation set.</view>
-  <button class="primary-button" bindtap="startGenerating">Generate preview</button>
+
+  <view class="section">
+    <view class="section-title">Skin tone</view>
+    <view class="segmented">
+      <button wx:for="{{options.skinTone}}" wx:key="value" class="segment {{skinTone === item.value ? 'segment-active' : ''}}" data-field="skinTone" data-value="{{item.value}}" bindtap="selectOption">{{item.label}}</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">Budget</view>
+    <view class="segmented">
+      <button wx:for="{{options.budget}}" wx:key="value" class="segment {{budget === item.value ? 'segment-active' : ''}}" data-field="budget" data-value="{{item.value}}" bindtap="selectOption">{{item.label}}</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">Scene</view>
+    <view class="segmented">
+      <button wx:for="{{options.scene}}" wx:key="value" class="segment {{scene === item.value ? 'segment-active' : ''}}" data-field="scene" data-value="{{item.value}}" bindtap="selectOption">{{item.label}}</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">Style</view>
+    <view class="segmented">
+      <button wx:for="{{options.style}}" wx:key="value" class="segment {{style === item.value ? 'segment-active' : ''}}" data-field="style" data-value="{{item.value}}" bindtap="selectOption">{{item.label}}</button>
+    </view>
+  </view>
+
+  <button class="primary-button" bindtap="startGenerating" loading="{{submitting}}" disabled="{{submitting}}">Generate preview</button>
+  <view wx:if="{{feedback}}" class="feedback">{{feedback}}</view>
 </view>
