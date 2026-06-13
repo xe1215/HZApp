@@ -1,0 +1,47 @@
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 48rpx 36rpx;
+  background: #fff8fa;
+  color: #24191d;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.copy {
+  margin-top: 20rpx;
+  color: #6d5960;
+  font-size: 30rpx;
+  line-height: 1.55;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  height: 88rpx;
+  margin-top: 32rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 88rpx;
+}
+
+.primary-button {
+  color: #fff;
+  background: #b72957;
+}
+
+.secondary-button {
+  color: #b72957;
+  background: #fff;
+  border: 2rpx solid #f0c7d3;
+}

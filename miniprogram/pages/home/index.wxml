@@ -1,0 +1,20 @@
+<view class="page home-page">
+  <view class="hero">
+    <view class="eyebrow">AI lipstick try-on</view>
+    <view class="title">Find your lipstick match before buying.</view>
+    <view class="subtitle">Upload a selfie, pick your preferences, and preview three looks before unlocking the full recommendation report.</view>
+    <view class="actions">
+      <button class="primary-button" bindtap="startTest" disabled="{{!userReady}}">Start try-on</button>
+      <button class="secondary-button" bindtap="openReports">My reports</button>
+    </view>
+    <view wx:if="{{loginError}}" class="notice">{{loginError}}</view>
+  </view>
+
+  <view class="flow">
+    <view class="flow-title">First version flow</view>
+    <view wx:for="{{steps}}" wx:key="*this" class="flow-row">
+      <text class="flow-index">{{index + 1}}</text>
+      <text class="flow-text">{{item}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<view class="page">
+  <view class="title">Shared card</view>
+  <view class="copy">Shared pages show one result card and a restart entry.</view>
+</view>

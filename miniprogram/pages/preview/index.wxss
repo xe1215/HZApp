@@ -1,0 +1,18 @@
+@import "../shared.wxss";
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+  margin: 36rpx 0;
+}
+
+.preview-card {
+  height: 220rpx;
+  border-radius: 8rpx;
+  background: #f8dfe7;
+  color: #8b2a4a;
+  font-size: 26rpx;
+  line-height: 220rpx;
+  text-align: center;
+}

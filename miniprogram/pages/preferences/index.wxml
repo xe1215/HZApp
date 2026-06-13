@@ -1,0 +1,5 @@
+<view class="page">
+  <view class="title">Set preferences</view>
+  <view class="copy">Skin tone, budget, scene, and style will shape the first recommendation set.</view>
+  <button class="primary-button" bindtap="startGenerating">Generate preview</button>
+</view>

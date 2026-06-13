@@ -1,0 +1,5 @@
+<view class="page">
+  <view class="title">Full report</view>
+  <view class="copy">Unlocked recommendations will show shades, reasons, cautions, substitutes, and search keywords.</view>
+  <button class="secondary-button" bindtap="shareCard">Share one card</button>
+</view>

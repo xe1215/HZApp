@@ -1,0 +1,100 @@
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 48rpx 36rpx;
+  color: #24191d;
+  background: #fff8fa;
+}
+
+.hero {
+  padding-top: 32rpx;
+}
+
+.eyebrow {
+  color: #a61f4b;
+  font-size: 24rpx;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-top: 24rpx;
+  font-size: 56rpx;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 24rpx;
+  color: #6d5960;
+  font-size: 30rpx;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}
+
+.primary-button,
+.secondary-button {
+  flex: 1;
+  height: 88rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 88rpx;
+}
+
+.primary-button {
+  color: #fff;
+  background: #b72957;
+}
+
+.secondary-button {
+  color: #b72957;
+  background: #fff;
+  border: 2rpx solid #f0c7d3;
+}
+
+.notice {
+  margin-top: 24rpx;
+  color: #8a4b00;
+  font-size: 26rpx;
+}
+
+.flow {
+  margin-top: 56rpx;
+  padding: 32rpx 0;
+  border-top: 2rpx solid #f4dbe3;
+}
+
+.flow-title {
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.flow-row {
+  display: flex;
+  align-items: center;
+  min-height: 72rpx;
+}
+
+.flow-index {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 18rpx;
+  border-radius: 50%;
+  color: #fff;
+  background: #24191d;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.flow-text {
+  flex: 1;
+  color: #4c3f43;
+  font-size: 28rpx;
+}

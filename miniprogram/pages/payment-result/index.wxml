@@ -1,0 +1,5 @@
+<view class="page center">
+  <view class="title">Payment result</view>
+  <view class="copy">After payment succeeds, the active preview group unlocks immediately.</view>
+  <button class="primary-button" bindtap="viewReport">View report</button>
+</view>
