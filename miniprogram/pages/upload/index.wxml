@@ -1,5 +1,6 @@
 <view class="page">
   <view class="title">Upload a selfie</view>
   <view class="copy">Use a clear front-facing photo in natural light with lips visible.</view>
-  <button class="primary-button" bindtap="chooseSelfie">Choose photo</button>
+  <button class="primary-button" bindtap="chooseSelfie" loading="{{uploading}}" disabled="{{uploading}}">Choose photo</button>
+  <view wx:if="{{feedback}}" class="feedback">{{feedback}}</view>
 </view>
